@@ -1,0 +1,13 @@
+<h2>{{story.name}}</h2>
+
+<h3>Rules</h3>
+<div *ngFor="let rule of story.rules">
+  <mapping-rule [rule]="rule"></mapping-rule>
+  <hr />
+</div>
+
+<h3>Questions</h3>
+<div *ngFor="let question of story.questions">
+  <mapping-question [question]="question"></mapping-question>
+  <hr />
+</div>

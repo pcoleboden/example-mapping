@@ -26,6 +26,11 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\example-mapping\example-mapping.component.ts" />
+    <None Remove="ClientApp\tsconfig.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="ClientApp\tsconfig.json" />
   </ItemGroup>
 
   <ItemGroup>

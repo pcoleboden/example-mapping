@@ -1,0 +1,8 @@
+<textarea>{{rule.description}}</textarea>
+
+<h4>Examples</h4>
+<ul>
+  <li *ngFor="let example of rule.examples">
+    <mapping-example [example]="example"></mapping-example>
+  </li>
+</ul>
