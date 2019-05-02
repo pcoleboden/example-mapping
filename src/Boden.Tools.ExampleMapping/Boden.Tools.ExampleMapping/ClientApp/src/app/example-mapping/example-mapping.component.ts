@@ -52,6 +52,19 @@ export class MappingStoryComponent {
 
   constructor() {
   }
+
+  addQuestion() {
+    this.story.questions.push({
+      description: ""
+    });
+  }
+
+  addRule() {
+    this.story.rules.push({
+      description: "",
+      examples: []
+    });
+  }
 }
 
 @Component({
@@ -62,6 +75,12 @@ export class MappingRuleComponent {
   @Input() rule: MappingRule;
 
   constructor() {
+  }
+
+  addExample() {
+    this.rule.examples.push({
+      description: ""
+    });
   }
 }
 

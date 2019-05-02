@@ -1,1 +1,49 @@
-/* You can add global styles to this file, and also import other style files */
+.exmap-body-flex {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+}
+
+.exmap-holder {
+  display: inline-block;
+  vertical-align: top;
+  min-width: 290px;
+  max-width: 290px;
+  margin-right: 5px;
+}
+
+.exmap-body-flex .exmap-holder {
+  display: flex;
+  flex-direction: column;
+}
+
+.exmap-component {
+  display: flex;
+  width: 100%;
+  border: 1px solid #000000;
+  padding: 5px;
+  clear: both;
+  margin: 10px 0;
+}
+
+.exmap-component textarea {
+  display: block;
+  resize: vertical;
+  width: inherit;
+}
+
+.exmap-story .exmap-component {
+  background-color: #cccc00;
+}
+
+.exmap-question .exmap-component {
+  background-color: #cc0000;
+}
+
+.exmap-rule .exmap-component {
+  background-color: #00cc00;
+}
+
+.exmap-example .exmap-component {
+  background-color: #0000cc;
+}

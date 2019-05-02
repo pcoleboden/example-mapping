@@ -1,8 +1,7 @@
-<textarea>{{rule.description}}</textarea>
+<div class="exmap-component">
+  <textarea placeholder="New rule..." [(ngModel)]="rule.description"></textarea>
+</div>
 
-<h4>Examples</h4>
-<ul>
-  <li *ngFor="let example of rule.examples">
-    <mapping-example [example]="example"></mapping-example>
-  </li>
-</ul>
+<mapping-example class="exmap-example" *ngFor="let example of rule.examples" [example]="example"></mapping-example>
+
+<div><button (click)="addExample()">+ Example</button></div>
