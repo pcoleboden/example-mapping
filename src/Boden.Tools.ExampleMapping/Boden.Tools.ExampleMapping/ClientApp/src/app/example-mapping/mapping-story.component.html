@@ -1,17 +1,22 @@
 <div class="exmap-holder exmap-story">
-  <div class="exmap-component"><textarea [(ngModel)]="story.name"></textarea></div>
+  <div class="exmap-component">
+    <div class="exmap-component-heading"></div>
+    <div class="exmap-component-body">
+      <textarea [(ngModel)]="story.name"></textarea>
+    </div>
+  </div>
 </div>
 
 <h3>Rules</h3>
 <div class="exmap-body-flex">
   <mapping-rule class="exmap-holder exmap-rule" *ngFor="let rule of story.rules" [rule]="rule"></mapping-rule>
+  <div class="exmap-holder exmap-holder-new"><div class="exmap-component exmap-newbutton"><button class="glyphicon glyphicon-plus-sign" (click)="addRule()">Rule</button></div></div>
 </div>
-
-<div><button (click)="addRule()">New Rule</button></div>
 
 <h3>Questions</h3>
 <div class="exmap-body-100">
   <mapping-question class="exmap-holder exmap-question" *ngFor="let question of story.questions" [question]="question"></mapping-question>
+  <div class="exmap-holder"><div class="exmap-component exmap-newbutton"><button class="glyphicon glyphicon-plus-sign" (click)="addQuestion()">Question</button></div></div>
 </div>
 
-<div><button (click)="addQuestion()">New Question</button></div>
+

@@ -1,7 +1,10 @@
 <div class="exmap-component">
-  <textarea placeholder="New rule..." [(ngModel)]="rule.description"></textarea>
+  <div class="exmap-component-heading"></div>
+  <div class="exmap-component-body">
+    <textarea placeholder="New rule..." [(ngModel)]="rule.description"></textarea>
+  </div>
 </div>
 
 <mapping-example class="exmap-example" *ngFor="let example of rule.examples" [example]="example"></mapping-example>
+<div class="exmap-component exmap-newbutton"><button class="glyphicon glyphicon-plus-sign" (click)="addExample()">Example</button></div>
 
-<div><button (click)="addExample()">+ Example</button></div>

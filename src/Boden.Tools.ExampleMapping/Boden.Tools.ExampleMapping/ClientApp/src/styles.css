@@ -19,31 +19,56 @@
 
 .exmap-component {
   display: flex;
-  width: 100%;
-  border: 1px solid #000000;
-  padding: 5px;
+  /*border: 2px solid #000000;*/
+  
+  padding: 0;
   clear: both;
   margin: 10px 0;
+  min-height: 60px;
+  flex-direction: column;
 }
 
-.exmap-component textarea {
-  display: block;
-  resize: vertical;
-  width: inherit;
+  .exmap-component .exmap-component-heading {
+    display: flex;
+    height: 20px;
+  }
+
+  .exmap-component .exmap-component-body {
+    display: flex;
+    width: 100%;
+    padding: 5px;
+    background-color: lightgrey;
+  }
+
+  .exmap-component textarea {
+    display: flex;
+    resize: vertical;
+    width: inherit;
+    min-height: 50px;
+  }
+
+.exmap-rule {
+  background-color: lightgrey;
 }
 
-.exmap-story .exmap-component {
+.exmap-story .exmap-component .exmap-component-heading {
   background-color: #cccc00;
 }
 
-.exmap-question .exmap-component {
+.exmap-question .exmap-component .exmap-component-heading {
   background-color: #cc0000;
 }
 
-.exmap-rule .exmap-component {
+.exmap-rule .exmap-component .exmap-component-heading {
   background-color: #00cc00;
 }
 
-.exmap-example .exmap-component {
+.exmap-example .exmap-component .exmap-component-heading {
   background-color: #0000cc;
+}
+
+.exmap-component.exmap-newbutton {
+  background-color: transparent;
+  border-style: dashed;
+  border-color: lightgrey;
 }
