@@ -1,3 +1,4 @@
+using Boden.Tools.ExampleMapping.Hubs;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -26,6 +27,8 @@ namespace Boden.Tools.ExampleMapping
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,6 +45,11 @@ namespace Boden.Tools.ExampleMapping
 
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
+
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<TestHub>("/testhub");
+            });
 
             app.UseMvc(routes =>
             {
