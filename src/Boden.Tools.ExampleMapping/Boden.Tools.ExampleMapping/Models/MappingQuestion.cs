@@ -13,5 +13,7 @@ namespace Boden.Tools.ExampleMapping.Models
         /// We may not need this - could just delete the question.
         /// </summary>
         public bool IsResolved { get; set; }
+
+        public string ParentStoryId { get; set; }
     }
 }

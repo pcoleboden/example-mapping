@@ -10,5 +10,7 @@ namespace Boden.Tools.ExampleMapping.Models
     {
         /// <summary>The collection of examples which help to illustrate the rule.</summary>
         public List<MappingExample> Examples { get; set; }
+
+        public string ParentRuleSectionId { get; set; }
     }
 }

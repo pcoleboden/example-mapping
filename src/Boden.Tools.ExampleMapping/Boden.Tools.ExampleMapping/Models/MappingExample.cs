@@ -8,5 +8,6 @@ namespace Boden.Tools.ExampleMapping.Models
     /// <summary>A example used to demonstrate an individual rule.</summary>
     public class MappingExample : MappingEntity
     {
+        public string ParentRuleId { get; set; }
     }
 }
