@@ -62,7 +62,15 @@ namespace Boden.Tools.ExampleMapping.Business.Data
                                         {
                                             Examples = new List<MappingExample>()
                                             {
-                                                new MappingExample("E1", "Example 1", "R1")
+                                                new MappingExample("E1", "Example 1", "R1"),
+                                                new MappingExample("E1_2", "Example 1 number 2", "R1")
+                                            }
+                                        },
+                                        new MappingRule("R2", "Rule 2", "RS1")
+                                        {
+                                            Examples = new List<MappingExample>()
+                                            {
+                                                new MappingExample("E2", "Example 2", "R2")
                                             }
                                         }
                                     }
