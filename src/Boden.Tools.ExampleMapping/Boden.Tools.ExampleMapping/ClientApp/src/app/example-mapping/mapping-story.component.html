@@ -1,16 +1,19 @@
+<h3><input type="text" [(ngModel)]="story.title" /></h3>
 <div class="exmap-holder exmap-story">
   <div class="exmap-component">
     <div class="exmap-component-heading"></div>
     <div class="exmap-component-body">
-      <textarea [(ngModel)]="story.name"></textarea>
+      <textarea [(ngModel)]="story.description"></textarea>
     </div>
   </div>
 </div>
 
 <h3>Rules</h3>
-<div class="exmap-body-flex">
-  <mapping-rule class="exmap-holder exmap-rule" *ngFor="let rule of story.rules" [rule]="rule"></mapping-rule>
-  <div class="exmap-holder exmap-holder-new"><div class="exmap-component exmap-newbutton"><button class="glyphicon glyphicon-plus-sign" (click)="addRule()">Rule</button></div></div>
+<div *ngFor="let ruleSection of story.ruleSections">
+  <div class="exmap-body-flex">
+    <mapping-rule class="exmap-holder exmap-rule" *ngFor="let rule of ruleSection.rules" [rule]="rule"></mapping-rule>
+    <div class="exmap-holder exmap-holder-new"><div class="exmap-component exmap-newbutton"><button class="glyphicon glyphicon-plus-sign" (click)="addRule()">Rule</button></div></div>
+  </div>
 </div>
 
 <h3>Questions</h3>

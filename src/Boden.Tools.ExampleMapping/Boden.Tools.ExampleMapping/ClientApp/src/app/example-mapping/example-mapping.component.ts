@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Inject } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'example-mapping',
@@ -6,35 +7,46 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./example-mapping.component.css']
 })
 export class ExampleMappingComponent {
-  title: string;
   inputStory: MappingStory;
 
-  constructor() {
-    this.title = 'Hello, World!';
-    this.inputStory = this.createDummyStory();
+  constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
+    var i = "S1";
+    http.get<MappingStory>(baseUrl + 'api/MappingStory/' + i).subscribe(result => {
+      this.inputStory = result;
+    }, error => console.error(error));
+
+    //this.title = 'Hello, World!';
+    //this.inputStory = this.createDummyStory();
   }
 
   createDummyStory() {
     var s: MappingStory;
     s = {
-      name: "Test story",
+      id: "STEST",
+      title: "Test story",
+      description: "Test story description",
       questions: [
         { description: "Question 1" },
         { description: "Question 2" }
       ],
-      rules: [
+      ruleSections: [
         {
-          description: "Rule 1",
-          examples: [
-            { description: "Example 1 A" },
-            { description: "Example 1 B" }
-          ]
-        },
-        {
-          description: "Rule 2",
-          examples: [
-            { description: "Example 2 A" },
-            { description: "Example 2 B" }
+          description: "",
+          rules: [
+            {
+              description: "Rule 1",
+              examples: [
+                { description: "Example 1 A" },
+                { description: "Example 1 B" }
+              ]
+            },
+            {
+              description: "Rule 2",
+              examples: [
+                { description: "Example 2 A" },
+                { description: "Example 2 B" }
+              ]
+            }
           ]
         }
       ]
@@ -60,7 +72,7 @@ export class MappingStoryComponent {
   }
 
   addRule() {
-    this.story.rules.push({
+    this.story.ruleSections[0].rules.push({
       description: "",
       examples: []
     });
@@ -108,9 +120,16 @@ export class MappingQuestionComponent {
 
 
 export class MappingStory {
-  public name: string;
-  public rules: MappingRule[];
+  public id: string;
+  public title: string;
+  public description: string;
+  public ruleSections: MappingRuleSection[];
   public questions: MappingQuestion[];
+}
+
+export class MappingRuleSection {
+  public description: string;
+  public rules: MappingRule[];
 }
 
 export class MappingRule {

@@ -16,6 +16,7 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="2.1.1" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,6 +36,10 @@
 
   <ItemGroup>
     <None Include="wwwroot\signalrtest.html" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Boden.Tools.ExampleMapping.Business\Boden.Tools.ExampleMapping.Business.csproj" />
   </ItemGroup>
 
   <ItemGroup>

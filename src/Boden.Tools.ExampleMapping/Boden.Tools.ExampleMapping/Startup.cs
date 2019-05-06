@@ -1,3 +1,5 @@
+using Boden.Tools.ExampleMapping.Business;
+using Boden.Tools.ExampleMapping.Business.Data;
 using Boden.Tools.ExampleMapping.Hubs;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -30,6 +32,11 @@ namespace Boden.Tools.ExampleMapping
             });
 
             services.AddSignalR();
+
+            services.AddScoped<ExampleMappingDbContext, InMemoryExampleMappingDbContext>();
+            InMemoryExampleMappingDbContext.ResetRoot();
+
+            services.AddScoped<MappingStoryRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

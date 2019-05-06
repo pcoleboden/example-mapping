@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Boden.Tools.ExampleMapping.Models
+namespace Boden.Tools.ExampleMapping.Business.Models
 {
     /// <summary>A top-level story represented in an example map</summary>
     public class MappingStory : MappingEntity
@@ -16,5 +16,15 @@ namespace Boden.Tools.ExampleMapping.Models
 
         /// <summary>The questions within the story</summary>
         public List<MappingQuestion> Questions { get; set; }
+
+        public MappingStory()
+        {
+        }
+
+        public MappingStory(string id, string description, string title)
+            : base(id, description)
+        {
+            this.Title = title;
+        }
     }
 }
