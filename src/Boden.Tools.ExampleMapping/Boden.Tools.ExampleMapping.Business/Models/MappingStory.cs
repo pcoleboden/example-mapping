@@ -1,30 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Boden.Tools.ExampleMapping.Business.Models
 {
-    /// <summary>A top-level story represented in an example map</summary>
-    public class MappingStory : MappingEntity
+    public partial class MappingStory : MappingEntity
     {
-        /// <summary>Short description of the story, e.g. Jira issue id.</summary>
-        public string Title { get; set; }
-
-        /// <summary>The rules making up the story</summary>
-        public List<MappingRuleSection> RuleSections { get; set; }
-
-        /// <summary>The questions within the story</summary>
-        public List<MappingQuestion> Questions { get; set; }
-
         public MappingStory()
+            : base()
         {
+            MappingQuestions = new HashSet<MappingQuestion>();
+            MappingRuleSections = new HashSet<MappingRuleSection>();
         }
 
         public MappingStory(string id, string description, string title)
             : base(id, description)
         {
             this.Title = title;
+            MappingQuestions = new HashSet<MappingQuestion>();
+            MappingRuleSections = new HashSet<MappingRuleSection>();
         }
+
+        public string Title { get; set; }
+
+        public ICollection<MappingQuestion> MappingQuestions { get; set; }
+        public ICollection<MappingRuleSection> MappingRuleSections { get; set; }
     }
 }

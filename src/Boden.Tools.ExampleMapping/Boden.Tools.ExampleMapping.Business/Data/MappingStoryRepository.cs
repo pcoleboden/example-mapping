@@ -16,11 +16,11 @@ namespace Boden.Tools.ExampleMapping.Business.Data
             this.dbContext = dbContext;
         }
 
-        public List<MappingStory> GetAll() => this.dbContext.Stories
+        public List<MappingStory> GetAll() => this.dbContext.MappingStories
             .Include(dbContext.GetIncludePaths<MappingStory>())
             .ToList();
 
-        public MappingStory GetById(string id) => this.dbContext.Stories.Where(s => s.Id == id)
+        public MappingStory GetById(string id) => this.dbContext.MappingStories.Where(s => s.Id == id)
             .Include(dbContext.GetIncludePaths<MappingStory>())
             .FirstOrDefault();
     }

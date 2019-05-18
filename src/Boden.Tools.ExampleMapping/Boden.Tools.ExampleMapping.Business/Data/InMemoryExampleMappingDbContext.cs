@@ -32,7 +32,6 @@ namespace Boden.Tools.ExampleMapping.Business.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            var dbRoot = new InMemoryDatabaseRoot();
             optionsBuilder.UseInMemoryDatabase(databaseName: "ExampleMappingDb", databaseRoot: databaseRoot);
             base.OnConfiguring(optionsBuilder);
         }
@@ -47,20 +46,20 @@ namespace Boden.Tools.ExampleMapping.Business.Data
                     {
                         var story = new MappingStory("S1", "Story 1 Description", "Story 1 Title")
                         {
-                            Questions = new List<MappingQuestion>()
+                            MappingQuestions = new List<MappingQuestion>()
                             {
                                 new MappingQuestion("Q1_1", "What is Question 1?", "S1"),
                                 new MappingQuestion("Q1_2", "What is Question 2?", "S1")
                             },
-                            RuleSections = new List<MappingRuleSection>()
+                            MappingRuleSections = new List<MappingRuleSection>()
                             {
                                 new MappingRuleSection("RS1", "Rule Section 1", "S1")
                                 {
-                                    Rules = new List<MappingRule>()
+                                    MappingRules = new List<MappingRule>()
                                     {
                                         new MappingRule("R1", "Rule 1", "RS1")
                                         {
-                                            Examples = new List<MappingExample>()
+                                            MappingExamples = new List<MappingExample>()
                                             {
                                                 new MappingExample("E1", "Example 1", "R1"),
                                                 new MappingExample("E1_2", "Example 1 number 2", "R1")
@@ -68,7 +67,7 @@ namespace Boden.Tools.ExampleMapping.Business.Data
                                         },
                                         new MappingRule("R2", "Rule 2", "RS1")
                                         {
-                                            Examples = new List<MappingExample>()
+                                            MappingExamples = new List<MappingExample>()
                                             {
                                                 new MappingExample("E2", "Example 2", "R2")
                                             }
@@ -77,7 +76,7 @@ namespace Boden.Tools.ExampleMapping.Business.Data
                                 }
                             }
                         };
-                        this.Stories.Add(story);
+                        this.MappingStories.Add(story);
                         this.SaveChanges();
                         hasSampleData = true;
                     }

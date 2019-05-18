@@ -1,23 +1,19 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Boden.Tools.ExampleMapping.Business.Models
 {
-    /// <summary>A example used to demonstrate an individual rule.</summary>
-    public class MappingExample : MappingEntity
+    public partial class MappingExample : MappingEntity
     {
-        public string ParentRuleId { get; set; }
+        public string MappingRuleId { get; set; }
+        [JsonIgnore]
+        public MappingRule MappingRule { get; set; }
 
-        public MappingExample()
-        {
-        }
-
-        public MappingExample(string id, string description, string parentRuleId)
+        public MappingExample(string id, string description, string mappingRuleId)
             : base(id, description)
         {
-            this.ParentRuleId = parentRuleId;
+            this.MappingRuleId = mappingRuleId;
         }
     }
 }

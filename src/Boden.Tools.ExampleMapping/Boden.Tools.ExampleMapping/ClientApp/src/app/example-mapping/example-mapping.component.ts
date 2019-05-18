@@ -25,24 +25,24 @@ export class ExampleMappingComponent {
       id: "STEST",
       title: "Test story",
       description: "Test story description",
-      questions: [
+      mappingQuestions: [
         { description: "Question 1" },
         { description: "Question 2" }
       ],
-      ruleSections: [
+      mappingRuleSections: [
         {
           description: "",
-          rules: [
+          mappingRules: [
             {
               description: "Rule 1",
-              examples: [
+              mappingExamples: [
                 { description: "Example 1 A" },
                 { description: "Example 1 B" }
               ]
             },
             {
               description: "Rule 2",
-              examples: [
+              mappingExamples: [
                 { description: "Example 2 A" },
                 { description: "Example 2 B" }
               ]
@@ -66,15 +66,15 @@ export class MappingStoryComponent {
   }
 
   addQuestion() {
-    this.story.questions.push({
+    this.story.mappingQuestions.push({
       description: ""
     });
   }
 
   addRule() {
-    this.story.ruleSections[0].rules.push({
+    this.story.mappingRuleSections[0].mappingRules.push({
       description: "",
-      examples: []
+      mappingExamples: []
     });
   }
 }
@@ -90,7 +90,7 @@ export class MappingRuleComponent {
   }
 
   addExample() {
-    this.rule.examples.push({
+    this.rule.mappingExamples.push({
       description: ""
     });
   }
@@ -123,18 +123,18 @@ export class MappingStory {
   public id: string;
   public title: string;
   public description: string;
-  public ruleSections: MappingRuleSection[];
-  public questions: MappingQuestion[];
+  public mappingRuleSections: MappingRuleSection[];
+  public mappingQuestions: MappingQuestion[];
 }
 
 export class MappingRuleSection {
   public description: string;
-  public rules: MappingRule[];
+  public mappingRules: MappingRule[];
 }
 
 export class MappingRule {
   public description: string;
-  public examples: MappingExample[];
+  public mappingExamples: MappingExample[];
 }
 
 export class MappingExample {

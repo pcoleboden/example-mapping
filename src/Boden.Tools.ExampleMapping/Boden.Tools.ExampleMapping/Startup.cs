@@ -33,7 +33,10 @@ namespace Boden.Tools.ExampleMapping
 
             services.AddSignalR();
 
-            services.AddScoped<ExampleMappingDbContext, InMemoryExampleMappingDbContext>();
+            //services.AddScoped<ExampleMappingDbContext, InMemoryExampleMappingDbContext>();
+            string connectionString = this.Configuration.GetValue<string>("connectionString");
+            services.AddScoped<ExampleMappingDbContext, SqlServerExampleMappingDbContext>(sp => new SqlServerExampleMappingDbContext(connectionString));
+            //services.AddScoped<ExampleMappingDbContext, InMemoryExampleMappingDbContext>();
             InMemoryExampleMappingDbContext.ResetRoot();
 
             services.AddScoped<MappingStoryRepository>();

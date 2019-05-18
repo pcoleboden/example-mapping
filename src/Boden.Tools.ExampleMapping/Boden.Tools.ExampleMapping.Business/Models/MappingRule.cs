@@ -1,26 +1,28 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Boden.Tools.ExampleMapping.Business.Models
 {
-    /// <summary>A single rule within a story. Analogous to a piece of acceptance criteria.</summary>
-    public class MappingRule : MappingEntity
+    public partial class MappingRule : MappingEntity
     {
-        /// <summary>The collection of examples which help to illustrate the rule.</summary>
-        public List<MappingExample> Examples { get; set; }
-
-        public string ParentRuleSectionId { get; set; }
-
         public MappingRule()
+            : base()
         {
+            MappingExamples = new HashSet<MappingExample>();
         }
 
-        public MappingRule(string id, string description, string parentRuleSectionId)
+        public MappingRule(string id, string description, string mappingRuleSectionId)
             : base(id, description)
         {
-            this.ParentRuleSectionId = parentRuleSectionId;
+            this.MappingRuleSectionId = mappingRuleSectionId;
+            MappingExamples = new HashSet<MappingExample>();
         }
+
+        public string MappingRuleSectionId { get; set; }
+
+        [JsonIgnore]
+        public MappingRuleSection MappingRuleSection { get; set; }
+        public ICollection<MappingExample> MappingExamples { get; set; }
     }
 }

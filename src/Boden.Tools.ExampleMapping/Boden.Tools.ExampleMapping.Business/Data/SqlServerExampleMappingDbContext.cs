@@ -16,7 +16,10 @@ namespace Boden.Tools.ExampleMapping.Business.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(this.ConnectionString);
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer(this.ConnectionString);
+            }
         }
     }
 }

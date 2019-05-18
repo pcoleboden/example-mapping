@@ -1,26 +1,27 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Boden.Tools.ExampleMapping.Business.Models
 {
-    /// <summary>A collection of Mapping Rules grouped under a common topic.</summary>
-    public class MappingRuleSection : MappingEntity
+    public partial class MappingRuleSection : MappingEntity
     {
-        /// <summary>The rules contained within the section.</summary>
-        public List<MappingRule> Rules { get; set; }
-
-        public string ParentStoryId { get; set; }
-
         public MappingRuleSection()
+            : base()
         {
+            MappingRules = new HashSet<MappingRule>();
         }
 
-        public MappingRuleSection(string id, string description, string parentStoryId)
+        public MappingRuleSection(string id, string description, string mappingStoryId)
             : base(id, description)
         {
-            this.ParentStoryId = parentStoryId;
+            this.MappingStoryId = mappingStoryId;
+            MappingRules = new HashSet<MappingRule>();
         }
+
+        public string MappingStoryId { get; set; }
+        [JsonIgnore]
+        public MappingStory MappingStory { get; set; }
+        public ICollection<MappingRule> MappingRules { get; set; }
     }
 }
